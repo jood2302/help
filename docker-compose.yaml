@@ -16,3 +16,11 @@ services:
       - db
     env_file:
       - ./.env
+
+  init:
+    build: .
+    depends_on:
+      - db
+    env_file:
+      - ./.env
+    command: python manage.py migrate
